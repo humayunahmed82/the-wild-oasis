@@ -1,71 +1,16 @@
 import { createContext, useContext } from "react";
-import styled from "styled-components";
-
-const StyledTable = styled.div`
-	border: 1px solid var(--color-grey-200);
-
-	font-size: 1.4rem;
-	background-color: var(--color-grey-0);
-	border-radius: 7px;
-	overflow: hidden;
-`;
-
-const CommonRow = styled.div`
-	display: grid;
-	grid-template-columns: ${(props) => props.columns};
-	column-gap: 2.4rem;
-	align-items: center;
-	transition: none;
-`;
-
-const StyledHeader = styled(CommonRow)`
-	padding: 1.6rem 2.4rem;
-
-	background-color: var(--color-grey-50);
-	border-bottom: 1px solid var(--color-grey-100);
-	text-transform: uppercase;
-	letter-spacing: 0.4px;
-	font-weight: 600;
-	color: var(--color-grey-600);
-`;
-
-const StyledRow = styled(CommonRow)`
-	padding: 1.2rem 2.4rem;
-
-	&:not(:last-child) {
-		border-bottom: 1px solid var(--color-grey-100);
-	}
-`;
-
-const StyledBody = styled.section`
-	margin: 0.4rem 0;
-`;
-
-const Footer = styled.footer`
-	background-color: var(--color-grey-50);
-	display: flex;
-	justify-content: center;
-	padding: 1.2rem;
-
-	/* This will hide the footer when it contains no child elements. Possible thanks to the parent selector :has 🎉 */
-	&:not(:has(*)) {
-		display: none;
-	}
-`;
-
-const Empty = styled.p`
-	font-size: 1.6rem;
-	font-weight: 500;
-	text-align: center;
-	margin: 2.4rem;
-`;
 
 const TableContext = createContext();
 
 const Table = ({ children, columns }) => {
 	return (
 		<TableContext.Provider value={{ columns }}>
-			<StyledTable role="table">{children}</StyledTable>
+			<div
+				className="border border-solid border-gray-200 text-[1.4rem] bg-white rounded-lg overflow-hidden"
+				role="table"
+			>
+				{children}
+			</div>
 		</TableContext.Provider>
 	);
 };
@@ -74,27 +19,43 @@ const Header = ({ children }) => {
 	const { columns } = useContext(TableContext);
 
 	return (
-		<StyledHeader role="row" columns={columns} as="header">
+		<header
+			role="row"
+			className={`px-[2.4rem] py-[1.6rem] bg-gray-50 border-b border-solid border-gray-100 uppercase tracking-[4px] font-semibold text-gray-600 grid gap-10 items-center transition-none ${columns} `}
+		>
 			{children}
-		</StyledHeader>
+		</header>
 	);
 };
 const Row = ({ children }) => {
 	const { columns } = useContext(TableContext);
 
 	return (
-		<StyledRow role="row" columns={columns}>
+		<div
+			role="row"
+			className={`px-[2.4rem] py-[1.2rem] border-b border-solid border-gray-100 last:border-b-0 grid gap-10 items-center transition-none ${columns}`}
+		>
 			{children}
-		</StyledRow>
+		</div>
 	);
 };
 
 const Body = ({ data, render }) => {
-	if (!data.length) return <Empty>No data show at the moment</Empty>;
+	if (!data.length)
+		return (
+			<p className="text-[1.6rem] font-semibold text-center m-10">
+				No data show at the moment
+			</p>
+		);
 
-	return <StyledBody>{data.map(render)}</StyledBody>;
+	return <div className="my-2">{data.map(render)}</div>;
 };
-// const Footer = ({ children }) => {};
+
+const Footer = ({ children }) => {
+	return (
+		<footer className="bg-gray-50 flex justify-center p-5">{children}</footer>
+	);
+};
 
 Table.Header = Header;
 Table.Row = Row;

@@ -2,12 +2,12 @@ import { useForm } from "react-hook-form";
 import { useCreateCabin } from "./useCreateCabin";
 import { useEditCabin } from "./useEditCabin";
 
-import Input from "../../ui/Input";
 import Form from "../../ui/Form";
-import Button from "../../ui/Button";
-import FileInput from "../../ui/FileInput";
-import Textarea from "../../ui/Textarea";
 import FormRow from "../../ui/FormRow";
+import Input from "../../ui/Input";
+import Textarea from "../../ui/Textarea";
+import FileInput from "../../ui/FileInput";
+import Button from "../../ui/Button";
 
 const CreateCabinForm = ({ cabinToEdit = {}, onCloseModal }) => {
 	const { isCreating, createCabin } = useCreateCabin();
@@ -55,7 +55,8 @@ const CreateCabinForm = ({ cabinToEdit = {}, onCloseModal }) => {
 			type={onCloseModal ? "modal" : "regular"}
 		>
 			<FormRow label="Cabin name" error={errors?.name?.message}>
-				<Input
+				<input
+					className={Input}
 					type="text"
 					id="name"
 					disabled={isWorking}
@@ -66,7 +67,8 @@ const CreateCabinForm = ({ cabinToEdit = {}, onCloseModal }) => {
 			</FormRow>
 
 			<FormRow label="Maximum capacity" error={errors?.maxCapacity?.message}>
-				<Input
+				<input
+					className={Input}
 					type="number"
 					id="maxCapacity"
 					disabled={isWorking}
@@ -81,7 +83,8 @@ const CreateCabinForm = ({ cabinToEdit = {}, onCloseModal }) => {
 			</FormRow>
 
 			<FormRow label="Regular price" error={errors?.regularPrice?.message}>
-				<Input
+				<input
+					className={Input}
 					type="number"
 					id="regularPrice"
 					disabled={isWorking}
@@ -92,7 +95,8 @@ const CreateCabinForm = ({ cabinToEdit = {}, onCloseModal }) => {
 			</FormRow>
 
 			<FormRow label="Discount" error={errors?.discount?.message}>
-				<Input
+				<input
+					className={Input}
 					type="number"
 					id="discount"
 					disabled={isWorking}
@@ -110,18 +114,21 @@ const CreateCabinForm = ({ cabinToEdit = {}, onCloseModal }) => {
 				label="Description for website"
 				error={errors?.description?.message}
 			>
-				<Textarea
+				<textarea
+					className={Textarea}
 					type="number"
 					id="description"
 					defaultValue=""
 					{...register("description", {
 						required: "This field is required",
 					})}
-				/>
+				></textarea>
 			</FormRow>
 
 			<FormRow label="Cabin photo">
-				<FileInput
+				<input
+					className={FileInput}
+					type="file"
 					id="image"
 					accept="image/*"
 					{...register("image", {

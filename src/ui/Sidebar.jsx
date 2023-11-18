@@ -1,27 +1,13 @@
-import styled from "styled-components";
 import Logo from "./Logo";
 import MainNav from "./MainNav";
 
-const StyledSidebar = styled.aside`
-	background-color: var(--color-grey-0);
-	padding: 3.2rem 2.4rem;
-	border-right: 1px solid var(--color-grey-100);
-	grid-row: 1 / -1;
-	display: flex;
-	flex-direction: column;
-	gap: 3.2rem;
-`;
-
 const Sidebar = () => {
 	return (
-		<StyledSidebar>
+		<aside className="bg-white py-[3.2rem] px-[2.4rem] border-r border-solid border-r-gray-100 row-span-full flex flex-col gap-[3.2rem]">
 			<Logo />
 			<MainNav />
-		</StyledSidebar>
+		</aside>
 	);
 };
 
 export default Sidebar;
-
-// sH21k75jUFZFI5Wm
-// 8. Connecting Supabase With Our React App

@@ -63,3 +63,20 @@ Button.defaultProps = {
 };
 
 export default Button;
+
+// const sizes = [
+// 	{
+// 		small:
+// 			"text-[1.2rem] py-[0.4rem] px-[0.8rem] uppercase font-semibold text-center",
+// 	},
+// 	{ medium: "text-[1.4rem] py-[1.2rem] px-[1.6rem] uppercase font-medium" },
+// 	{ large: "text-[1.6rem] py-[1.2rem] px-[2.4rem] uppercase font-medium" },
+// ];
+
+// const variations = [
+// 	{ primary: "text-indigo-50 bg-indigo-600 hover:bg-indigo-700" },
+// 	{ secondary: "text-gray-600 bg-white hover:bg-gray-50" },
+// 	{ danger: "text-red-50 bg-red-700 hover:bg-red-800" },
+// ];
+
+// const button = `border-0 rounded-lg shadow-custom-1`;

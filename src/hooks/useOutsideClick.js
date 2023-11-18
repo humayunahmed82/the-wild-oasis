@@ -6,7 +6,6 @@ const useOutsideClick = (handel, listenCapturing = true) => {
 	useEffect(() => {
 		const handelClick = (e) => {
 			if (ref.current && !ref.current.contains(e.target)) {
-				console.log("click outside");
 				handel();
 			}
 		};

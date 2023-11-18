@@ -1,11 +1,4 @@
-import styled from "styled-components";
-
-const Input = styled.input`
-	border: 1px solid var(--color-grey-300);
-	background-color: var(--color-grey-0);
-	border-radius: var(--border-radius-sm);
-	padding: 0.8rem 1.2rem;
-	box-shadow: var(--shadow-sm);
-`;
+const Input =
+	"border border-solid border-gray-300 bg-white rounded-lg py-[0.8rem] px-[1.2rem] shadow-custom-1";
 
 export default Input;

@@ -1,94 +1,62 @@
 import { NavLink } from "react-router-dom";
-import styled from "styled-components";
 import {
 	HiMiniCalendarDays,
-	HiOutlineCalendarDays,
 	HiOutlineCog6Tooth,
 	HiOutlineHome,
 	HiOutlineHomeModern,
 	HiOutlineUsers,
 } from "react-icons/hi2";
 
-const NavList = styled.ul`
-	display: flex;
-	flex-direction: column;
-	gap: 0.8rem;
-`;
-
-const StyleNavLink = styled(NavLink)`
-	&:link,
-	&:visited {
-		display: flex;
-		align-items: center;
-		gap: 1.2rem;
-
-		color: var(--color-grey-600);
-		font-size: 1.6rem;
-		font-weight: 500;
-		padding: 1.2rem 2.4rem;
-		transition: all 0.3s;
-	}
-
-	/* This works because react-router places the active class on the active NavLink */
-	&:hover,
-	&:active,
-	&.active:link,
-	&.active:visited {
-		color: var(--color-grey-800);
-		background-color: var(--color-grey-50);
-		border-radius: var(--border-radius-sm);
-	}
-
-	& svg {
-		width: 2.4rem;
-		height: 2.4rem;
-		color: var(--color-grey-400);
-		transition: all 0.3s;
-	}
-
-	&:hover svg,
-	&:active svg,
-	&.active:link svg,
-	&.active:visited svg {
-		color: var(--color-brand-600);
-	}
-`;
-
 const MainNav = () => {
 	return (
 		<nav>
-			<NavList>
+			<ul className="flex flex-col gap-4 main-nav">
 				<li>
-					<StyleNavLink to="/dashboard">
-						<HiOutlineHome />
+					<NavLink
+						to="/dashboard"
+						className="flex items-center gap-5 text-gray-600 text-[1.6rem] font-medium py-5 px-10 transition-all duration-300 hover:text-gray-800 hover:bg-gray-50 hover:rounded-[5px] group/menu"
+					>
+						<HiOutlineHome className="w-[2.4rem] h-[2.4rem] text-gray-400 transition-all duration-300 group-hover/menu:text-indigo-600" />
 						<span>Dashboard</span>
-					</StyleNavLink>
+					</NavLink>
 				</li>
 				<li>
-					<StyleNavLink to="/bookings">
-						<HiMiniCalendarDays />
+					<NavLink
+						to="/bookings"
+						className="flex items-center gap-5 text-gray-600 text-[1.6rem] font-medium py-5 px-10 transition-all duration-300 hover:text-gray-800 hover:bg-gray-50 hover:rounded-[5px] group/menu"
+					>
+						<HiMiniCalendarDays className="w-[2.4rem] h-[2.4rem] text-gray-400 transition-all duration-300 group-hover/menu:text-indigo-600" />
 						<span>Bookings</span>
-					</StyleNavLink>
+					</NavLink>
 				</li>
 				<li>
-					<StyleNavLink to="/cabins">
-						<HiOutlineHomeModern />
+					<NavLink
+						to="/cabins"
+						className="flex items-center gap-5 text-gray-600 text-[1.6rem] font-medium py-5 px-10 transition-all duration-300 hover:text-gray-800 hover:bg-gray-50 hover:rounded-[5px] group/menu"
+					>
+						<HiOutlineHomeModern className="w-[2.4rem] h-[2.4rem] text-gray-400 transition-all duration-300 group-hover/menu:text-indigo-600" />
 						<span>Cabins</span>
-					</StyleNavLink>
+					</NavLink>
 				</li>
 				<li>
-					<StyleNavLink to="/users">
-						<HiOutlineUsers />
+					<NavLink
+						to="/users"
+						className="flex items-center gap-5 text-gray-600 text-[1.6rem] font-medium py-5 px-10 transition-all duration-300 hover:text-gray-800 hover:bg-gray-50 hover:rounded-[5px] group/menu"
+					>
+						<HiOutlineUsers className="w-[2.4rem] h-[2.4rem] text-gray-400 transition-all duration-300 group-hover/menu:text-indigo-600" />
 						<span>Users</span>
-					</StyleNavLink>
+					</NavLink>
 				</li>
 				<li>
-					<StyleNavLink to="/settings">
-						<HiOutlineCog6Tooth />
+					<NavLink
+						to="/settings"
+						className="flex items-center gap-5 text-gray-600 text-[1.6rem] font-medium py-5 px-10 transition-all duration-300 hover:text-gray-800 hover:bg-gray-50 hover:rounded-[5px] group/menu"
+					>
+						<HiOutlineCog6Tooth className="w-[2.4rem] h-[2.4rem] text-gray-400 transition-all duration-300 group-hover/menu:text-indigo-600 " />
 						<span>Settings</span>
-					</StyleNavLink>
+					</NavLink>
 				</li>
-			</NavList>
+			</ul>
 		</nav>
 	);
 };

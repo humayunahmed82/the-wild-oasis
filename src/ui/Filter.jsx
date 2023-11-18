@@ -1,35 +1,34 @@
-import styled, { css } from "styled-components";
+import { useSearchParams } from "react-router-dom";
 
-const StyledFilter = styled.div`
-  border: 1px solid var(--color-grey-100);
-  background-color: var(--color-grey-0);
-  box-shadow: var(--shadow-sm);
-  border-radius: var(--border-radius-sm);
-  padding: 0.4rem;
-  display: flex;
-  gap: 0.4rem;
-`;
+const Filter = ({ filterField, options }) => {
+	const [searchParams, serSearchParams] = useSearchParams();
+	const currentValue = searchParams.get(filterField) || options.at(0).value;
 
-const FilterButton = styled.button`
-  background-color: var(--color-grey-0);
-  border: none;
+	const handelClick = (value) => {
+		searchParams.set(filterField, value);
+		serSearchParams(searchParams);
+	};
 
-  ${(props) =>
-    props.active &&
-    css`
-      background-color: var(--color-brand-600);
-      color: var(--color-brand-50);
-    `}
+	return (
+		<div className="border border-solid border-gray-100 bg-white shadow-custom-1 rounded-[5px] flex gap-[0.4rem] p-[0.4rem]">
+			{options.map((option) => (
+				<button
+					className={` rounded-[5px] font-medium text-[1.4rem] py-[0.44rem] px-[0.8rem] hover:bg-indigo-600 hover:text-indigo-50 ${
+						option.value === currentValue
+							? "bg-indigo-600 text-indigo-50"
+							: "bg-white"
+					}`}
+					key={option.value}
+					onClick={() => handelClick(option.value)}
+					disabled={option.value === currentValue}
+				>
+					{option.label}
+				</button>
+			))}
+		</div>
+	);
+};
 
-  border-radius: var(--border-radius-sm);
-  font-weight: 500;
-  font-size: 1.4rem;
-  /* To give the same height as select */
-  padding: 0.44rem 0.8rem;
-  transition: all 0.3s;
+export default Filter;
 
-  &:hover:not(:disabled) {
-    background-color: var(--color-brand-600);
-    color: var(--color-brand-50);
-  }
-`;
+// 3. Client-Side Sorting Sorting Cabins.mp4

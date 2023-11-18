@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.main-nav {
+		& li {
+			& .active {
+				@apply text-gray-800 bg-gray-50 rounded-[5px];
+
+				& svg {
+					@apply text-indigo-600;
+				}
+			}
+		}
+	}
+
+	.spinner-gradient {
+		background: radial-gradient(
+					farthest-side,
+					var(--color-brand-600) 94%,
+					#0000
+				)
+				top/10px 10px no-repeat,
+			conic-gradient(#0000 30%, var(--color-brand-600));
+		-webkit-mask: radial-gradient(
+			farthest-side,
+			#0000 calc(100% - 10px),
+			#000 0
+		);
+	}
+}
+
+@layer base {
+	input:focus,
+	button:focus,
+	textarea:focus,
+	select:focus {
+		@apply outline-2 outline outline-indigo-600 -outline-offset-1;
+	}
+}
