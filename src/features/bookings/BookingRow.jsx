@@ -1,38 +1,8 @@
-import styled from "styled-components";
 import { format, isToday } from "date-fns";
-
-import Tag from "../../ui/Tag";
 import Table from "../../ui/Table";
 
 import { formatCurrency } from "../../utils/helpers";
 import { formatDistanceFromNow } from "../../utils/helpers";
-
-const Cabin = styled.div`
-	font-size: 1.6rem;
-	font-weight: 600;
-	color: var(--color-grey-600);
-	font-family: "Sono";
-`;
-
-const Stacked = styled.div`
-	display: flex;
-	flex-direction: column;
-	gap: 0.2rem;
-
-	& span:first-child {
-		font-weight: 500;
-	}
-
-	& span:last-child {
-		color: var(--color-grey-500);
-		font-size: 1.2rem;
-	}
-`;
-
-const Amount = styled.div`
-	font-family: "Sono";
-	font-weight: 500;
-`;
 
 const BookingRow = ({
 	booking: {
@@ -49,36 +19,42 @@ const BookingRow = ({
 	},
 }) => {
 	const statusToTagName = {
-		unconfirmed: "blue",
-		"checked-in": "green",
-		"checked-out": "silver",
+		unconfirmed: "bg-indigo-100 text-indigo-700",
+		"checked-in": "green bg-green-100 text-green-700",
+		"checked-out": "bg-gray-200 text-gray-700",
 	};
 
 	return (
 		<Table.Row>
-			<Cabin>{cabinName}</Cabin>
+			<div className="text-[1.6rem] text-gray-600 font-semibold font-sono">
+				{cabinName}
+			</div>
 
-			<Stacked>
-				<span>{guestName}</span>
-				<span>{email}</span>
-			</Stacked>
+			<div className="flex flex-col gap-[0.2rem]">
+				<span className="font-medium">{guestName}</span>
+				<span className="text-gray-500 text-[1.2rem]">{email}</span>
+			</div>
 
-			<Stacked>
-				<span>
+			<div className="flex flex-col gap-[0.2rem]">
+				<span className="font-medium">
 					{isToday(new Date(startDate))
 						? "Today"
 						: formatDistanceFromNow(startDate)}{" "}
 					&rarr; {numNights} night stay
 				</span>
-				<span>
+				<span className="text-gray-500 text-[1.2rem]">
 					{format(new Date(startDate), "MMM dd yyyy")} &mdash;{" "}
 					{format(new Date(endDate), "MMM dd yyyy")}
 				</span>
-			</Stacked>
+			</div>
 
-			<Tag type={statusToTagName[status]}>{status.replace("-", " ")}</Tag>
+			<span
+				className={`w-[fit-content] uppercase text-[1.1rem] font-semibold py-[0.4rem] px-[1.2rem] rounded-full ${statusToTagName[status]}`}
+			>
+				{status.replace("-", " ")}
+			</span>
 
-			<Amount>{formatCurrency(totalPrice)}</Amount>
+			<div className="font-medium font-sono">{formatCurrency(totalPrice)}</div>
 		</Table.Row>
 	);
 };

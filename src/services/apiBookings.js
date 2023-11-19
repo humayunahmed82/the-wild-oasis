@@ -1,6 +1,21 @@
 import { getToday } from "../utils/helpers";
 import supabase from "./supabase";
 
+export const getBookings = async () => {
+	const { data, error } = await supabase
+		.from("bookings")
+		.select(
+			"id, created_at, startDate, endDate, numNights, numGuests, totalPrice, status, cabins(name), guests(fullName, email)"
+		);
+
+	if (error) {
+		console.log(error);
+		throw new Error("Bookings could not be loaded");
+	}
+
+	return data;
+};
+
 export const getBooking = async (id) => {
 	const { data, error } = await supabase
 		.from("bookings")
@@ -70,7 +85,7 @@ export const getStaysTodayActivity = async () => {
 	return data;
 };
 
-export const updateBooking = (id, obj) => {
+export const updateBooking = async (id, obj) => {
 	const { data, error } = await supabase
 		.from("bookings")
 		.update(obj)
@@ -83,9 +98,9 @@ export const updateBooking = (id, obj) => {
 		throw new Error("Booking could not be updated");
 	}
 	return data;
-}
+};
 
-export const deleteBooking = (id) => {
+export const deleteBooking = async (id) => {
 	// REMEMBER RLS POLICIES
 	const { data, error } = await supabase.from("bookings").delete().eq("id", id);
 
@@ -94,4 +109,4 @@ export const deleteBooking = (id) => {
 		throw new Error("Booking could not be deleted");
 	}
 	return data;
-}
+};

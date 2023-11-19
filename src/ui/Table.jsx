@@ -21,7 +21,7 @@ const Header = ({ children }) => {
 	return (
 		<header
 			role="row"
-			className={`px-[2.4rem] py-[1.6rem] bg-gray-50 border-b border-solid border-gray-100 uppercase tracking-[4px] font-semibold text-gray-600 grid gap-10 items-center transition-none ${columns} `}
+			className={`px-[2.4rem] py-[1.6rem] bg-gray-50 border-b border-solid border-gray-100 uppercase tracking-wider font-semibold text-gray-600 grid gap-10 items-center transition-none ${columns} `}
 		>
 			{children}
 		</header>

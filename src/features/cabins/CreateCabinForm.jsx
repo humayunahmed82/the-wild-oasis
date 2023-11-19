@@ -7,7 +7,6 @@ import FormRow from "../../ui/FormRow";
 import Input from "../../ui/Input";
 import Textarea from "../../ui/Textarea";
 import FileInput from "../../ui/FileInput";
-import Button from "../../ui/Button";
 
 const CreateCabinForm = ({ cabinToEdit = {}, onCloseModal }) => {
 	const { isCreating, createCabin } = useCreateCabin();
@@ -139,16 +138,19 @@ const CreateCabinForm = ({ cabinToEdit = {}, onCloseModal }) => {
 
 			<FormRow>
 				{/* type is an HTML attribute! */}
-				<Button
-					variation="secondary"
+				<button
+					className="text-[1.4rem] py-[1.2rem] px-[1.6rem] uppercase font-medium text-gray-600 bg-white hover:bg-gray-50"
 					type="reset"
 					onClick={() => onCloseModal?.()}
 				>
 					Cancel
-				</Button>
-				<Button disabled={isWorking}>
+				</button>
+				<button
+					className="text-[1.4rem] py-[1.2rem] px-[1.6rem] uppercase font-medium text-indigo-50 bg-indigo-600 hover:bg-indigo-700"
+					disabled={isWorking}
+				>
 					{isEditSession ? "Edit Cabin" : "Create new cabin"}
-				</Button>
+				</button>
 			</FormRow>
 		</Form>
 	);

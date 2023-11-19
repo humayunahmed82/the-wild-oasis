@@ -1,12 +1,15 @@
-import Heading from "../ui/Heading";
-import Row from "../ui/Row";
+import BookingTable from "../features/bookings/BookingTable";
 
 const Bookings = () => {
 	return (
-		<Row type="horizontal">
-			<Heading as="h1">All bookings</Heading>
-			<p>TEST</p>
-		</Row>
+		<>
+			<div className="flex justify-between items-center">
+				<h1 className="text-5xl font-medium">All bookings</h1>
+
+				<p>TEST</p>
+			</div>
+			<BookingTable />
+		</>
 	);
 };
 

@@ -1,13 +1,21 @@
 import BookingRow from "./BookingRow";
 import Table from "../../ui/Table";
 import Menus from "../../ui/Menus";
+import Empty from "../../ui/Empty";
+import Spinner from "../../ui/Spinner";
+
+import { useBookings } from "./useBookings";
 
 const BookingTable = () => {
-	const bookings = [];
+	const { isLoading, bookings } = useBookings();
+
+	if (isLoading) return <Spinner />;
+
+	if (!bookings.length) return <Empty resourceName="Bookings" />;
 
 	return (
 		<Menus>
-			<Table columns="0.6fr 2fr 2.4fr 1.4fr 1fr 3.2rem">
+			<Table columns="grid-cols-[0.6fr_2fr_2.4fr_1.4fr_1fr_3.2rem]">
 				<Table.Header>
 					<div>Cabin</div>
 					<div>Guest</div>

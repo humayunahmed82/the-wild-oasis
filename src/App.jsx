@@ -69,3 +69,5 @@ const App = () => {
 };
 
 export default App;
+
+// 4. Building the Bookings Table - 14: 30
