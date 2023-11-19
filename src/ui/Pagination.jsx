@@ -1,57 +1,71 @@
-import styled from "styled-components";
+import { HiChevronLeft, HiChevronRight } from "react-icons/hi2";
+import { useSearchParams } from "react-router-dom";
 
-const StyledPagination = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
+const active = false;
 
-const P = styled.p`
-  font-size: 1.4rem;
-  margin-left: 0.8rem;
+const PAGE_SIZE = 10;
 
-  & span {
-    font-weight: 600;
-  }
-`;
+const Pagination = ({ count }) => {
+	const [searchParams, setSearchParams] = useSearchParams();
+	const currentPage = !searchParams.get("page")
+		? 1
+		: Number(searchParams.get("page"));
 
-const Buttons = styled.div`
-  display: flex;
-  gap: 0.6rem;
-`;
+	const pageCount = Math.ceil(count / PAGE_SIZE);
 
-const PaginationButton = styled.button`
-  background-color: ${(props) =>
-    props.active ? " var(--color-brand-600)" : "var(--color-grey-50)"};
-  color: ${(props) => (props.active ? " var(--color-brand-50)" : "inherit")};
-  border: none;
-  border-radius: var(--border-radius-sm);
-  font-weight: 500;
-  font-size: 1.4rem;
+	const nextPage = () => {
+		const next = currentPage === pageCount ? currentPage : currentPage + 1;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.4rem;
-  padding: 0.6rem 1.2rem;
-  transition: all 0.3s;
+		searchParams.set("page", next);
+		setSearchParams(searchParams);
+	};
+	const PrevPage = () => {
+		const prev = currentPage === 1 ? currentPage : currentPage - 1;
 
-  &:has(span:last-child) {
-    padding-left: 0.4rem;
-  }
+		searchParams.set("page", prev);
+		setSearchParams(searchParams);
+	};
 
-  &:has(span:first-child) {
-    padding-right: 0.4rem;
-  }
+	if (pageCount <= 1) return null;
 
-  & svg {
-    height: 1.8rem;
-    width: 1.8rem;
-  }
+	return (
+		<div className="w-full flex items-center justify-between">
+			<p className="text-[1.4rem] ml-4">
+				Showing{" "}
+				<span className="font-semibold">
+					{(currentPage - 1) * PAGE_SIZE + 1}
+				</span>{" "}
+				to{" "}
+				<span className="font-semibold">
+					{currentPage === pageCount ? count : currentPage * PAGE_SIZE}
+				</span>{" "}
+				of <span className="font-semibold">{count}</span> result
+			</p>
 
-  &:hover:not(:disabled) {
-    background-color: var(--color-brand-600);
-    color: var(--color-brand-50);
-  }
-`;
+			<div className="flex gap-[0.6rem]">
+				<button
+					onClick={PrevPage}
+					disabled={currentPage === 1}
+					className={`border-0 rounded-lg font-medium text-[1.4rem] flex items-center justify-center gap-[0.4rem] py-3 px-5 transition-all duration-300 [&:has(span:last-child)]:pl-2 [&:has(span:first-child)]:pr-2 [&:hover:not(:disabled)]:bg-indigo-600 [&:hover:not(:disabled)]:text-indigo-50 hover:bg-indigo-600 hover:text-indigo-50 focus:outline-0 focus:outline-offset-0 disabled:opacity-60 ${
+						active ? "bg-indigo-600 text-indigo-50" : "bg-gray-200 text-inherit"
+					}`}
+				>
+					<HiChevronLeft className="w-[1.8rem] h-[1.8rem]" />
+					<span>Previews</span>
+				</button>
+				<button
+					onClick={nextPage}
+					disabled={currentPage === pageCount}
+					className={`border-0 rounded-lg font-medium text-[1.4rem] flex items-center justify-center gap-[0.4rem] py-3 px-5 transition-all duration-300 [&:has(span:last-child)]:pl-2 [&:has(span:first-child)]:pr-2 [&:hover:not(:disabled)]:bg-indigo-600 [&:hover:not(:disabled)]:text-indigo-50 hover:bg-indigo-600 hover:text-indigo-50 focus:outline-0 focus:outline-offset-0 disabled:opacity-60 ${
+						active ? "bg-indigo-600 text-indigo-50" : "bg-gray-200 text-inherit"
+					}`}
+				>
+					<span>Previews</span>
+					<HiChevronRight className="w-[1.8rem] h-[1.8rem]" />
+				</button>
+			</div>
+		</div>
+	);
+};
+
+export default Pagination;
