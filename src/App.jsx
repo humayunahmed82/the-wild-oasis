@@ -69,5 +69,3 @@ const App = () => {
 };
 
 export default App;
-
-// 6. API-Side Filtering Filtering Bookings
