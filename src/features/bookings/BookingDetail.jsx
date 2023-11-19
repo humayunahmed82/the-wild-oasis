@@ -1,6 +1,6 @@
-import BookingDataBox from "./BookingDataBox";
-
 import { useMoveBack } from "../../hooks/useMoveBack";
+
+import BookingDataBox from "./BookingDataBox";
 
 const BookingDetail = () => {
 	const booking = {};

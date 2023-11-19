@@ -1,8 +1,9 @@
 import { format, isToday } from "date-fns";
-import Table from "../../ui/Table";
 
 import { formatCurrency } from "../../utils/helpers";
 import { formatDistanceFromNow } from "../../utils/helpers";
+
+import Table from "../../ui/Table";
 
 const BookingRow = ({
 	booking: {

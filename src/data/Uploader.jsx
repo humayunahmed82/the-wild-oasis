@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { isFuture, isPast, isToday } from "date-fns";
 import supabase from "../services/supabase";
-import Button from "../ui/Button";
 import { subtractDates } from "../utils/helpers";
 
 import { bookings } from "./data-bookings";
@@ -126,27 +125,24 @@ const Uploader = () => {
 	};
 
 	return (
-		<div
-			style={{
-				marginTop: "auto",
-				backgroundColor: "#e0e7ff",
-				padding: "8px",
-				borderRadius: "5px",
-				textAlign: "center",
-				display: "flex",
-				flexDirection: "column",
-				gap: "8px",
-			}}
-		>
+		<div className="mt-auto bg-gray-200 p-2 rounded-md text-center flex flex-col gap-2">
 			<h3>SAMPLE DATA</h3>
 
-			<Button onClick={uploadAll} disabled={isLoading}>
+			<button
+				className="text-[1.4rem] py-[1.2rem] px-[1.6rem] whitespace-nowrap uppercase font-medium text-indigo-50 bg-indigo-600 hover:bg-indigo-700 rounded-lg"
+				onClick={uploadAll}
+				disabled={isLoading}
+			>
 				Upload ALL
-			</Button>
+			</button>
 
-			<Button onClick={uploadBookings} disabled={isLoading}>
+			<button
+				className="text-[1.4rem] py-[1.2rem] px-[1.6rem] whitespace-nowrap uppercase font-medium text-indigo-50 bg-indigo-600 hover:bg-indigo-700 rounded-lg"
+				onClick={uploadBookings}
+				disabled={isLoading}
+			>
 				Upload bookings ONLY
-			</Button>
+			</button>
 		</div>
 	);
 };
