@@ -5,6 +5,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 // Import Page Component
 import Dashboard from "./pages/Dashboard";
 import Bookings from "./pages/Bookings";
+import Booking from "./pages/Booking";
 import Cabins from "./pages/Cabins";
 import NewUsers from "./pages/Users";
 import Settings from "./pages/Settings";
@@ -34,6 +35,7 @@ const App = () => {
 						<Route index element={<Navigate replace to="dashboard " />}></Route>
 						<Route path="dashboard" element={<Dashboard />}></Route>
 						<Route path="bookings" element={<Bookings />}></Route>
+						<Route path="bookings/:bookingId" element={<Booking />}></Route>
 						<Route path="cabins" element={<Cabins />}></Route>
 						<Route path="users" element={<NewUsers />}></Route>
 						<Route path="settings" element={<Settings />}></Route>
