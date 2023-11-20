@@ -32,9 +32,12 @@ const BookingTable = () => {
 						<BookingRow key={booking.id} booking={booking} />
 					)}
 				/>
-				<Table.Footer>
-					<Pagination count={count} />
-				</Table.Footer>
+
+				{count >= 10 && (
+					<Table.Footer>
+						<Pagination count={count} />
+					</Table.Footer>
+				)}
 			</Table>
 		</Menus>
 	);
