@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { useMoveBack } from "../../hooks/useMoveBack";
 import { useBooking } from "./useBooking";
 
@@ -5,8 +6,9 @@ import Spinner from "../../ui/Spinner";
 import BookingDataBox from "./BookingDataBox";
 
 const BookingDetail = () => {
-	const { isLoading, booking } = useBooking();
+	const { booking, isLoading } = useBooking();
 	const moveBack = useMoveBack();
+	const navigate = useNavigate();
 
 	if (isLoading) return <Spinner />;
 
@@ -40,8 +42,16 @@ const BookingDetail = () => {
 			<BookingDataBox booking={booking} />
 
 			<div className="flex gap-[1.2rem] justify-end">
+				{status === "unconfirmed" && (
+					<button
+						className="text-[1.4rem] py-[1.2rem] px-[1.6rem] uppercase font-medium text-indigo-50 bg-indigo-600 hover:bg-indigo-700 rounded-lg focus:outline-0 focus:outline-offset-0"
+						onClick={() => navigate(`/checkin/${bookingId}`)}
+					>
+						Check In
+					</button>
+				)}
 				<button
-					className="text-[1.4rem] py-[1.2rem] px-[1.6rem] uppercase font-medium text-gray-600 bg-white hover:bg-gray-50"
+					className="text-[1.4rem] py-[1.2rem] px-[1.6rem] uppercase font-medium text-gray-600 bg-white hover:bg-gray-50 rounded-lg focus:outline-0 focus:outline-offset-0"
 					onClick={() => moveBack()}
 				>
 					Back
