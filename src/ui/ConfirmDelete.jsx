@@ -1,5 +1,3 @@
-import Button from "./Button";
-
 const ConfirmDelete = ({ resourceName, onConfirm, disabled, onCloseModal }) => {
 	return (
 		<div className="w-[40rem] flex flex-col gap-[1.2rem]">
@@ -10,16 +8,20 @@ const ConfirmDelete = ({ resourceName, onConfirm, disabled, onCloseModal }) => {
 			</p>
 
 			<div className="flex justify-center gap-[1.2rem]">
-				<Button
-					variation="secondary"
+				<button
+					className="text-[1.4rem] py-[1.2rem] px-[1.6rem] uppercase font-medium text-gray-600 bg-white hover:bg-gray-50 rounded-lg focus:outline-0 focus:outline-offset-0"
 					onClick={() => onCloseModal?.()}
 					disabled={disabled}
 				>
 					Cancel
-				</Button>
-				<Button variation="danger" onClick={onConfirm} disabled={disabled}>
+				</button>
+				<button
+					className="text-[1.4rem] py-[1.2rem] px-[1.6rem] uppercase font-medium text-red-50 bg-red-700 hover:bg-red-800 rounded-lg focus:outline-0 focus:outline-offset-0"
+					onClick={onConfirm}
+					disabled={disabled}
+				>
 					Delete
-				</Button>
+				</button>
 			</div>
 		</div>
 	);

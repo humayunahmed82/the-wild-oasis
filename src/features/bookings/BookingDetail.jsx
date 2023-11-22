@@ -5,10 +5,14 @@ import { useBooking } from "./useBooking";
 import Spinner from "../../ui/Spinner";
 import BookingDataBox from "./BookingDataBox";
 import { useCheckout } from "../check-in-out/useCheckout";
+import { useDeleteBooking } from "./useDeleteBooking";
+import Modal from "../../ui/Modal";
+import ConfirmDelete from "../../ui/ConfirmDelete";
 
 const BookingDetail = () => {
 	const { booking, isLoading } = useBooking();
 	const { checkout, isCheckingOut } = useCheckout();
+	const { isDeleting, deleteBooking } = useDeleteBooking();
 
 	const moveBack = useMoveBack();
 	const navigate = useNavigate();
@@ -45,6 +49,24 @@ const BookingDetail = () => {
 			<BookingDataBox booking={booking} />
 
 			<div className="flex gap-[1.2rem] justify-end">
+				<Modal>
+					<Modal.Open opens="delete">
+						<button className="text-[1.4rem] py-[1.2rem] px-[1.6rem] uppercase font-medium text-red-50 bg-red-700 hover:bg-red-800 rounded-lg focus:outline-0 focus:outline-offset-0">
+							Delete Booking
+						</button>
+					</Modal.Open>
+					<Modal.Window name="delete">
+						<ConfirmDelete
+							resourceName="bookings"
+							disabled={isDeleting}
+							onConfirm={() => {
+								deleteBooking(bookingId, {
+									onSettled: () => navigate(-1),
+								});
+							}}
+						/>
+					</Modal.Window>
+				</Modal>
 				{status === "unconfirmed" && (
 					<button
 						className="text-[1.4rem] py-[1.2rem] px-[1.6rem] uppercase font-medium text-indigo-50 bg-indigo-600 hover:bg-indigo-700 rounded-lg focus:outline-0 focus:outline-offset-0"
@@ -62,6 +84,7 @@ const BookingDetail = () => {
 						Check out
 					</button>
 				)}
+
 				<button
 					className="text-[1.4rem] py-[1.2rem] px-[1.6rem] uppercase font-medium text-gray-600 bg-white hover:bg-gray-50 rounded-lg focus:outline-0 focus:outline-offset-0"
 					onClick={() => moveBack()}
