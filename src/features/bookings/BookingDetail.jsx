@@ -4,9 +4,12 @@ import { useBooking } from "./useBooking";
 
 import Spinner from "../../ui/Spinner";
 import BookingDataBox from "./BookingDataBox";
+import { useCheckout } from "../check-in-out/useCheckout";
 
 const BookingDetail = () => {
 	const { booking, isLoading } = useBooking();
+	const { checkout, isCheckingOut } = useCheckout();
+
 	const moveBack = useMoveBack();
 	const navigate = useNavigate();
 
@@ -47,7 +50,16 @@ const BookingDetail = () => {
 						className="text-[1.4rem] py-[1.2rem] px-[1.6rem] uppercase font-medium text-indigo-50 bg-indigo-600 hover:bg-indigo-700 rounded-lg focus:outline-0 focus:outline-offset-0"
 						onClick={() => navigate(`/checkin/${bookingId}`)}
 					>
-						Check In
+						Check in
+					</button>
+				)}
+				{status === "checked-in" && (
+					<button
+						className="text-[1.4rem] py-[1.2rem] px-[1.6rem] uppercase font-medium text-indigo-50 bg-indigo-600 hover:bg-indigo-700 rounded-lg focus:outline-0 focus:outline-offset-0"
+						onClick={() => checkout(bookingId)}
+						disabled={isCheckingOut}
+					>
+						Check out
 					</button>
 				)}
 				<button
