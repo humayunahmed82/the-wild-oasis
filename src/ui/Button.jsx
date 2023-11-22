@@ -67,10 +67,10 @@ export default Button;
 // const sizes = [
 // 	{
 // 		small:
-// 			"text-[1.2rem] py-[0.4rem] px-[0.8rem] uppercase font-semibold text-center",
+// 			"text-[1.2rem] py-[0.4rem] px-[0.8rem] uppercase font-semibold text-center rounded-lg",
 // 	},
-// 	{ medium: "text-[1.4rem] py-[1.2rem] px-[1.6rem] uppercase font-medium" },
-// 	{ large: "text-[1.6rem] py-[1.2rem] px-[2.4rem] uppercase font-medium" },
+// 	{ medium: "text-[1.4rem] py-[1.2rem] px-[1.6rem] uppercase font-medium rounded-lg" },
+// 	{ large: "text-[1.6rem] py-[1.2rem] px-[2.4rem] uppercase font-medium rounded-lg" },
 // ];
 
 // const variations = [

@@ -1,17 +1,16 @@
-import styled from "styled-components";
-
-const LoginLayout = styled.main`
-	min-height: 100vh;
-	display: grid;
-	grid-template-columns: 48rem;
-	align-content: center;
-	justify-content: center;
-	gap: 3.2rem;
-	background-color: var(--color-grey-50);
-`;
+import LoginForm from "../features/authentication/LoginForm";
+import Logo from "../ui/Logo";
 
 const Login = () => {
-	return <LoginLayout>Login</LoginLayout>;
+	return (
+		<main className="min-h-screen grid grid-cols-[48rem] content-center justify-center gap-[3.2rem]  bg-gray-50">
+			<Logo />
+			<h4 className="text-5xl font-semibold text-center">
+				Login to your account
+			</h4>
+			<LoginForm />
+		</main>
+	);
 };
 
 export default Login;
