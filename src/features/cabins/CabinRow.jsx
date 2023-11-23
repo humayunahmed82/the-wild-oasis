@@ -41,7 +41,7 @@ const CabinRow = ({ cabin }) => {
 				className="block w-[6.4rem] aspect-[3_/_2] object-cover object-center scale-150 -translate-x-[7px]"
 			/>
 
-			<div className="text-[1.6rem] text-gray-600 font-semibold font-sono">
+			<div className="text-[1.6rem] text-gray-600 dark:text-gray-300 font-semibold font-sono">
 				{name}
 			</div>
 
@@ -52,7 +52,7 @@ const CabinRow = ({ cabin }) => {
 			</div>
 
 			{discount ? (
-				<div className="font-semibold font-sono text-gray-700">
+				<div className="font-semibold font-sono text-gray-700 dark:text-gray-200">
 					{formatCurrency(discount)}
 				</div>
 			) : (

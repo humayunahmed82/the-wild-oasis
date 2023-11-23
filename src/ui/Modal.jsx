@@ -32,16 +32,16 @@ const Window = ({ children, name }) => {
 	if (name !== openName) return null;
 
 	return createPortal(
-		<div className="fixed top-0 left-0 w-full h-[100vh] bg-white/10 backdrop-blur-sm z-50 transition-all duration-500">
+		<div className="fixed top-0 left-0 w-full h-[100vh] bg-white/10 dark:bg-[#18212f]/10 backdrop-blur-sm z-50 transition-all duration-500">
 			<div
-				className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg shadow-custom-3 py-[3.2rem] px-[4rem] transition-all duration-500"
+				className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white dark:bg-[#18212f] rounded-lg shadow-custom-3 py-[3.2rem] px-[4rem] transition-all duration-500"
 				ref={ref}
 			>
 				<button
-					className="p-[0.4rem] rounded-[5px] translate-x-[0.8rem] transition-all duration-200 absolute top-[1.2rem] right-[1.9rem] hover:bg-gray-100 focus:outline-[0] focus:outline-offset-0"
+					className="p-[0.4rem] rounded-[5px] translate-x-[0.8rem] transition-all duration-200 absolute top-[1.2rem] right-[1.9rem] hover:bg-gray-100 dark:bg-gray-800 focus:outline-[0] focus:outline-offset-0"
 					onClick={close}
 				>
-					<HiXMark className="w-[2.4rem] h-[2.4rem] text-gray-500" />
+					<HiXMark className="w-[2.4rem] h-[2.4rem] text-gray-500 dark:text-gray-400" />
 				</button>
 
 				<div>{cloneElement(children, { onCloseModal: close })}</div>

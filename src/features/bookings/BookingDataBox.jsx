@@ -31,7 +31,7 @@ const BookingDataBox = ({ booking }) => {
 	} = booking;
 
 	return (
-		<div className="bg-white border border-solid border-gray-100 rounded-lg overflow-hidden">
+		<div className="bg-white dark:bg-[#18212f]  border border-solid border-gray-100 dark:border-gray-800 rounded-lg overflow-hidden">
 			<header className="bg-indigo-500 py-8 px-16 text-[#e0e7ff] text-[1.8rem] font-medium flex items-center justify-between">
 				<div className="first:flex first:items-center first:gap-[1.6rem] first:font-medium first:text-3xl">
 					<HiOutlineHomeModern className="w-[3.2rem] h-[3.2rem]" />
@@ -51,17 +51,17 @@ const BookingDataBox = ({ booking }) => {
 			</header>
 
 			<section className="pt-[3.2rem] px-16 pb-[1.2rem]">
-				<div className="flex items-center gap-[1.2rem] mb-[1.6rem] text-gray-500">
+				<div className="flex items-center gap-[1.2rem] mb-[1.6rem] text-gray-500 dark:text-gray-400">
 					{countryFlag && <Flag src={countryFlag} alt={`Flag of ${country}`} />}
-					<p className="[&:first-of-type]:font-medium [&:first-of-type]:text-gray-700">
+					<p className="[&:first-of-type]:font-medium [&:first-of-type]:text-gray-700 dark:[&:first-of-type]:text-gray-200">
 						{guestName} {numGuests > 1 ? `+ ${numGuests - 1} guests` : ""}
 					</p>
 					<span>&bull;</span>
-					<p className="[&:first-of-type]:font-medium [&:first-of-type]:text-gray-700">
+					<p className="[&:first-of-type]:font-medium [&:first-of-type]:text-gray-700 dark:[&:first-of-type]:text-gray-200">
 						{email}
 					</p>
 					<span>&bull;</span>
-					<p className="[&:first-of-type]:font-medium [&:first-of-type]:text-gray-700">
+					<p className="[&:first-of-type]:font-medium [&:first-of-type]:text-gray-700 dark:[&:first-of-type]:text-gray-200">
 						National ID {nationalID}
 					</p>
 				</div>
@@ -82,8 +82,8 @@ const BookingDataBox = ({ booking }) => {
 				<div
 					className={`flex items-center justify-between py-[1.6rem] px-[3.2rem] rounded-lg mt-10 ${
 						isPaid
-							? "bg-green-100 text-green-700"
-							: "bg-yellow-100  text-yellow-700"
+							? "bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-100"
+							: "bg-yellow-100  text-yellow-700 dark:bg-yellow-800 dark:text-yellow-100"
 					}`}
 				>
 					<DataItem

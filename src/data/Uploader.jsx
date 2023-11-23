@@ -125,7 +125,7 @@ const Uploader = () => {
 	};
 
 	return (
-		<div className="mt-auto bg-gray-200 p-2 rounded-md text-center flex flex-col gap-2">
+		<div className="mt-auto bg-gray-200 dark:bg-gray-700 p-2 rounded-md text-center flex flex-col gap-2">
 			<h3>SAMPLE DATA</h3>
 
 			<button

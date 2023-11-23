@@ -139,7 +139,7 @@ const CreateCabinForm = ({ cabinToEdit = {}, onCloseModal }) => {
 			<FormRow>
 				{/* type is an HTML attribute! */}
 				<button
-					className="text-[1.4rem] py-[1.2rem] px-[1.6rem] uppercase font-medium text-gray-600 bg-white hover:bg-gray-50 rounded-lg focus:outline-0 focus:outline-offset-0 border border-solid border-gray-300"
+					className="text-[1.4rem] py-[1.2rem] px-[1.6rem] uppercase font-medium text-gray-600 dark:text-gray-300 bg-white dark:bg-[#18212f] hover:bg-gray-50 rounded-lg focus:outline-0 focus:outline-offset-0 border border-solid border-gray-300 dark:border-gray-800"
 					type="reset"
 					onClick={() => onCloseModal?.()}
 				>

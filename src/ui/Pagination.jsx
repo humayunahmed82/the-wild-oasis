@@ -46,7 +46,9 @@ const Pagination = ({ count }) => {
 					onClick={PrevPage}
 					disabled={currentPage === 1}
 					className={`border-0 rounded-lg font-medium text-[1.4rem] flex items-center justify-center gap-[0.4rem] py-3 px-5 transition-all duration-300 [&:has(span:last-child)]:pl-2 [&:has(span:first-child)]:pr-2 [&:hover:not(:disabled)]:bg-indigo-600 [&:hover:not(:disabled)]:text-indigo-50 hover:bg-indigo-600 hover:text-indigo-50 focus:outline-0 focus:outline-offset-0 disabled:opacity-60 ${
-						active ? "bg-indigo-600 text-indigo-50" : "bg-gray-200 text-inherit"
+						active
+							? "bg-indigo-600 text-indigo-50"
+							: "bg-gray-200 dark:bg-gray-700 text-inherit"
 					}`}
 				>
 					<HiChevronLeft className="w-[1.8rem] h-[1.8rem]" />
@@ -56,7 +58,9 @@ const Pagination = ({ count }) => {
 					onClick={nextPage}
 					disabled={currentPage === pageCount}
 					className={`border-0 rounded-lg font-medium text-[1.4rem] flex items-center justify-center gap-[0.4rem] py-3 px-5 transition-all duration-300 [&:has(span:last-child)]:pl-2 [&:has(span:first-child)]:pr-2 [&:hover:not(:disabled)]:bg-indigo-600 [&:hover:not(:disabled)]:text-indigo-50 hover:bg-indigo-600 hover:text-indigo-50 focus:outline-0 focus:outline-offset-0 disabled:opacity-60 ${
-						active ? "bg-indigo-600 text-indigo-50" : "bg-gray-200 text-inherit"
+						active
+							? "bg-indigo-600 text-indigo-50"
+							: "bg-gray-200 dark:bg-gray-700 text-inherit"
 					}`}
 				>
 					<span>Previews</span>

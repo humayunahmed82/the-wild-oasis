@@ -6,7 +6,7 @@ const Table = ({ children, columns }) => {
 	return (
 		<TableContext.Provider value={{ columns }}>
 			<div
-				className="border border-solid border-gray-200 text-[1.4rem] bg-white rounded-lg overflow-hidden"
+				className="border border-solid border-gray-200 dark:border-gray-700 text-[1.4rem] bg-white dark:bg-[#18212f] rounded-lg overflow-hidden"
 				role="table"
 			>
 				{children}
@@ -21,7 +21,7 @@ const Header = ({ children }) => {
 	return (
 		<header
 			role="row"
-			className={`px-[2.4rem] py-[1.6rem] bg-gray-50 border-b border-solid border-gray-100 uppercase tracking-wider font-semibold text-gray-600 grid gap-10 items-center transition-none ${columns} `}
+			className={`px-[2.4rem] py-[1.6rem] bg-gray-50 dark:bg-gray-900 border-b border-solid border-gray-100 dark:border-gray-800 uppercase tracking-wider font-semibold text-gray-600 grid gap-10 items-center transition-none ${columns} `}
 		>
 			{children}
 		</header>
@@ -33,7 +33,7 @@ const Row = ({ children }) => {
 	return (
 		<div
 			role="row"
-			className={`px-[2.4rem] py-[1.2rem] border-b border-solid border-gray-100 last:border-b-0 grid gap-10 items-center transition-none ${columns}`}
+			className={`px-[2.4rem] py-[1.2rem] border-b border-solid border-gray-100 dark:border-gray-800 last:border-b-0 grid gap-10 items-center transition-none ${columns}`}
 		>
 			{children}
 		</div>
@@ -53,7 +53,9 @@ const Body = ({ data, render }) => {
 
 const Footer = ({ children }) => {
 	return (
-		<footer className="bg-gray-50 flex justify-center p-5">{children}</footer>
+		<footer className="bg-gray-50 dark:bg-gray-900 flex justify-center p-5">
+			{children}
+		</footer>
 	);
 };
 

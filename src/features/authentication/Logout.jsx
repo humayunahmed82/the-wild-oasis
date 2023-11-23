@@ -9,7 +9,7 @@ const Logout = () => {
 		<button
 			onClick={logout}
 			disabled={isLoading}
-			className="bg-transparent border-0 p-[0.6rem] rounded-lg transition-all duration-200 hover:bg-gray-100 focus:outline-0 focus:outline-offset-0"
+			className="bg-transparent border-0 p-[0.6rem] rounded-lg transition-all duration-200 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-0 focus:outline-offset-0"
 		>
 			{!isLoading ? (
 				<HiArrowRightOnRectangle className="w-9 h-9 text-indigo-600" />

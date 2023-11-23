@@ -45,13 +45,15 @@ const BookingRow = ({
 
 	return (
 		<Table.Row>
-			<div className="text-[1.6rem] text-gray-600 font-semibold font-sono">
+			<div className="text-[1.6rem] text-gray-600 dark:text-gray-300 font-semibold font-sono">
 				{cabinName}
 			</div>
 
 			<div className="flex flex-col gap-[0.2rem]">
 				<span className="font-medium">{guestName}</span>
-				<span className="text-gray-500 text-[1.2rem]">{email}</span>
+				<span className="text-gray-500 dark:text-gray-400 text-[1.2rem]">
+					{email}
+				</span>
 			</div>
 
 			<div className="flex flex-col gap-[0.2rem]">

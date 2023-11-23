@@ -41,10 +41,10 @@ const Toggle = ({ id }) => {
 
 	return (
 		<button
-			className="p-[0.4rem] shadow-custom-1 translate-x-[0.8rem] transition-all duration-200 hover:bg-gray-100 focus:outline-[0] focus:outline-offset-0"
+			className="p-[0.4rem] shadow-custom-1 translate-x-[0.8rem] transition-all duration-200 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-[0] focus:outline-offset-0"
 			onClick={handelClick}
 		>
-			<HiEllipsisVertical className="w-[2.4rem] h-[2.4rem] text-gray-700" />
+			<HiEllipsisVertical className="w-[2.4rem] h-[2.4rem] text-gray-700 dark:text-gray-200" />
 		</button>
 	);
 };
@@ -82,10 +82,10 @@ const Button = ({ icon, children, onClick }) => {
 	return (
 		<li>
 			<button
-				className="w-full text-left py-[1.2rem] px-[2.4rem] text-[1.4rem] transition-all duration-200 flex items-center gap-[1.2rem] hover:bg-gray-50 focus:outline-[0] focus:outline-offset-0"
+				className="w-full text-left py-[1.2rem] px-[2.4rem] text-[1.4rem] transition-all duration-200 flex items-center gap-[1.2rem] hover:bg-gray-50 dark:bg-gray-900 focus:outline-[0] focus:outline-offset-0"
 				onClick={handelClick}
 			>
-				<span className="w-[1.6rem] h-[1.6rem] text-gray-400 transition-all duration-300">
+				<span className="w-[1.6rem] h-[1.6rem] text-gray-400 dark:text-gray-500 transition-all duration-300">
 					{icon}
 				</span>
 				<span className="block">{children}</span>

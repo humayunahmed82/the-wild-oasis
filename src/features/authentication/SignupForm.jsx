@@ -85,7 +85,7 @@ const SignupForm = () => {
 
 			<FormRow>
 				<button
-					className="text-[1.4rem] py-[1.2rem] px-[1.6rem] uppercase font-medium rounded-lg text-gray-600 bg-white hover:bg-gray-50 border border-solid border-gray-300 focus:outline-0 focus:outline-offset-0"
+					className="text-[1.4rem] py-[1.2rem] px-[1.6rem] uppercase font-medium rounded-lg text-gray-600 dark:text-gray-300 bg-white dark:bg-[#18212f] hover:bg-gray-50 border border-solid border-gray-300 dark:border-gray-800 focus:outline-0 focus:outline-offset-0"
 					type="reset"
 					disabled={isLoading}
 				>

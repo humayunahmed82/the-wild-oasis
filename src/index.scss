@@ -2,11 +2,78 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+	*,
+	*::before,
+	*::after {
+		@apply box-border p-0 m-0;
+	}
+
+	html {
+		@apply text-[62.5%];
+	}
+
+	body {
+		@apply text-gray-700 dark:text-gray-200 min-h-screen leading-[1.5] text-[1.6rem];
+	}
+
+	input,
+	button,
+	textarea,
+	select {
+		@apply text-inherit;
+	}
+
+	button {
+		@apply cursor-pointer;
+	}
+
+	*:disabled {
+		@apply cursor-not-allowed;
+	}
+
+	select:disabled,
+	input:disabled {
+		@apply bg-gray-200 text-gray-500 dark:bg-gray-700 dark:text-gray-400;
+	}
+
+	input:focus,
+	button:focus,
+	textarea:focus,
+	select:focus {
+		@apply outline-2 outline outline-indigo-600 -outline-offset-1;
+	}
+
+	button:has(svg) {
+		@apply leading-[0];
+	}
+
+	a {
+		@apply text-inherit transition-none;
+	}
+
+	p,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply hyphens-auto;
+	}
+
+	img {
+		@apply max-w-full dark:grayscale-[10%];
+		/* For dark mode */
+		// filter: grayscale(var(--image-grayscale)) opacity(var(--image-opacity));
+	}
+}
+
 @layer components {
 	.main-nav {
 		& li {
 			& .active {
-				@apply text-gray-800 bg-gray-50 rounded-[5px];
+				@apply text-gray-800 bg-gray-50 rounded-[5px] dark:text-gray-100 dark:bg-gray-900;
 
 				& svg {
 					@apply text-indigo-600;
@@ -16,26 +83,13 @@
 	}
 
 	.spinner-gradient {
-		background: radial-gradient(
-					farthest-side,
-					var(--color-brand-600) 94%,
-					#0000
-				)
-				top/10px 10px no-repeat,
-			conic-gradient(#0000 30%, var(--color-brand-600));
+		background: radial-gradient(farthest-side, #4f46e5 94%, #0000) top/10px 10px
+				no-repeat,
+			conic-gradient(#0000 30%, #4f46e5);
 		-webkit-mask: radial-gradient(
 			farthest-side,
 			#0000 calc(100% - 10px),
 			#000 0
 		);
-	}
-}
-
-@layer base {
-	input:focus,
-	button:focus,
-	textarea:focus,
-	select:focus {
-		@apply outline-2 outline outline-indigo-600 -outline-offset-1;
 	}
 }

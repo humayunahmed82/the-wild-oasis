@@ -12,13 +12,13 @@ const Filter = ({ filterField, options }) => {
 	};
 
 	return (
-		<div className="border border-solid border-gray-100 bg-white shadow-custom-1 rounded-[5px] flex gap-[0.4rem] p-[0.4rem]">
+		<div className="border border-solid border-gray-100 dark:border-gray-800 bg-white dark:bg-[#18212f] shadow-custom-1 rounded-[5px] flex gap-[0.4rem] p-[0.4rem]">
 			{options.map((option) => (
 				<button
 					className={` rounded-[5px] font-medium text-[1.4rem] py-[0.44rem] px-[0.8rem] hover:bg-indigo-600 hover:text-indigo-50 ${
 						option.value === currentValue
 							? "bg-indigo-600 text-indigo-50"
-							: "bg-white"
+							: "bg-white dark:bg-[#18212f]"
 					}`}
 					key={option.value}
 					onClick={() => handelClick(option.value)}
