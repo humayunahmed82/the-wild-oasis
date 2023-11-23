@@ -1,3 +1,4 @@
+import UpdateUserDataForm from "../features/authentication/UpdateUserDataForm";
 import Heading from "../ui/Heading";
 import Row from "../ui/Row";
 
@@ -8,7 +9,7 @@ const Account = () => {
 
 			<div className="flex flex-col gap-[1.6rem]">
 				<h3 className="text-[2rem] font-medium">Update user data</h3>
-				<p>Update user data form</p>
+				<UpdateUserDataForm />
 			</div>
 
 			<div className="flex flex-col gap-[1.6rem]">
