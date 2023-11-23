@@ -18,7 +18,7 @@ const UpdatePasswordForm = () => {
 	return (
 		<Form onSubmit={handleSubmit(onSubmit)} type="regular">
 			<FormRow
-				label="Password (min 8 characters)"
+				label="New Password (min 8 characters)"
 				error={errors?.password?.message}
 			>
 				<input
