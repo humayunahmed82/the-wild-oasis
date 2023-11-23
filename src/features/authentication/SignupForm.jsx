@@ -3,15 +3,23 @@ import { useForm } from "react-hook-form";
 import Form from "../../ui/Form";
 import FormRow from "../../ui/FormRow";
 import Input from "../../ui/Input";
+import { useSignup } from "./useSignup";
 
 // Email regex: /\S+@\S+\.\S+/
 
 const SignupForm = () => {
-	const { register, formState, getValues, handleSubmit } = useForm();
+	const { signup, isLoading } = useSignup();
+
+	const { register, formState, getValues, handleSubmit, reset } = useForm();
 	const { errors } = formState;
 
-	const onSubmit = (data) => {
-		console.log(data);
+	const onSubmit = ({ fullName, email, password }) => {
+		signup(
+			{ fullName, email, password },
+			{
+				onSettled: () => reset(),
+			}
+		);
 	};
 
 	return (
@@ -19,6 +27,7 @@ const SignupForm = () => {
 			<FormRow label="Full name" error={errors?.fullName?.message}>
 				<input
 					className={Input}
+					disabled={isLoading}
 					type="text"
 					id="fullName"
 					{...register("fullName", { required: "This field is required" })}
@@ -28,6 +37,7 @@ const SignupForm = () => {
 			<FormRow label="Email address" error={errors?.email?.message}>
 				<input
 					className={Input}
+					disabled={isLoading}
 					type="email"
 					id="email"
 					{...register("email", {
@@ -46,6 +56,7 @@ const SignupForm = () => {
 			>
 				<input
 					className={Input}
+					disabled={isLoading}
 					type="password"
 					id="password"
 					{...register("password", {
@@ -61,6 +72,7 @@ const SignupForm = () => {
 			<FormRow label="Repeat password" error={errors?.passwordConfirm?.message}>
 				<input
 					className={Input}
+					disabled={isLoading}
 					type="password"
 					id="passwordConfirm"
 					{...register("passwordConfirm", {
@@ -75,10 +87,14 @@ const SignupForm = () => {
 				<button
 					className="text-[1.4rem] py-[1.2rem] px-[1.6rem] uppercase font-medium rounded-lg text-gray-600 bg-white hover:bg-gray-50 border border-solid border-gray-300 focus:outline-0 focus:outline-offset-0"
 					type="reset"
+					disabled={isLoading}
 				>
 					Cancel
 				</button>
-				<button className="text-[1.4rem] py-[1.2rem] px-[1.6rem] uppercase font-medium rounded-lg text-indigo-50 bg-indigo-600 hover:bg-indigo-700 focus:outline-0 focus:outline-offset-0">
+				<button
+					className="text-[1.4rem] py-[1.2rem] px-[1.6rem] uppercase font-medium rounded-lg text-indigo-50 bg-indigo-600 hover:bg-indigo-700 focus:outline-0 focus:outline-offset-0"
+					disabled={isLoading}
+				>
 					Create new user
 				</button>
 			</FormRow>
