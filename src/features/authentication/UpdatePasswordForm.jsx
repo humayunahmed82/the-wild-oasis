@@ -1,5 +1,4 @@
 import { useForm } from "react-hook-form";
-import Button from "../../ui/Button";
 import Form from "../../ui/Form";
 import FormRow from "../../ui/FormRow";
 import Input from "../../ui/Input";
@@ -17,12 +16,13 @@ const UpdatePasswordForm = () => {
 	};
 
 	return (
-		<Form onSubmit={handleSubmit(onSubmit)}>
+		<Form onSubmit={handleSubmit(onSubmit)} type="regular">
 			<FormRow
 				label="Password (min 8 characters)"
 				error={errors?.password?.message}
 			>
-				<Input
+				<input
+					className={Input}
 					type="password"
 					id="password"
 					autoComplete="current-password"
@@ -41,7 +41,8 @@ const UpdatePasswordForm = () => {
 				label="Confirm password"
 				error={errors?.passwordConfirm?.message}
 			>
-				<Input
+				<input
+					className={Input}
 					type="password"
 					autoComplete="new-password"
 					id="passwordConfirm"
@@ -54,10 +55,19 @@ const UpdatePasswordForm = () => {
 				/>
 			</FormRow>
 			<FormRow>
-				<Button onClick={reset} type="reset" variation="secondary">
+				<button
+					className="text-[1.4rem] py-[1.2rem] px-[1.6rem] uppercase font-medium rounded-lg text-gray-600 bg-white hover:bg-gray-50 border border-solid border-gray-300 focus:outline-0 focus:outline-offset-0"
+					onClick={reset}
+					type="reset"
+				>
 					Cancel
-				</Button>
-				<Button disabled={isUpdating}>Update password</Button>
+				</button>
+				<button
+					className="text-[1.4rem] py-[1.2rem] px-[1.6rem] uppercase font-medium rounded-lg text-indigo-50 bg-indigo-600 hover:bg-indigo-700 focus:outline-0 focus:outline-offset-0"
+					disabled={isUpdating}
+				>
+					Update password
+				</button>
 			</FormRow>
 		</Form>
 	);

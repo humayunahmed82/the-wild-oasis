@@ -1,12 +1,9 @@
-import Heading from "../ui/Heading";
-import Row from "../ui/Row";
-
 const Dashboard = () => {
 	return (
-		<Row type="horizontal">
-			<Heading as="h1">Dashboard</Heading>
+		<div className="flex justify-between items-center">
+			<h1 className="text-5xl font-semibold">Dashboard</h1>
 			<p>TEST</p>
-		</Row>
+		</div>
 	);
 };
 

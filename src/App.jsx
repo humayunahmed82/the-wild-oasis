@@ -82,5 +82,3 @@ const App = () => {
 };
 
 export default App;
-
-// 12. Checking In a Booking - 12:10

@@ -86,7 +86,7 @@ const BookingDetail = () => {
 				)}
 
 				<button
-					className="text-[1.4rem] py-[1.2rem] px-[1.6rem] uppercase font-medium text-gray-600 bg-white hover:bg-gray-50 rounded-lg focus:outline-0 focus:outline-offset-0"
+					className="text-[1.4rem] py-[1.2rem] px-[1.6rem] uppercase font-medium text-gray-600 bg-white hover:bg-gray-50 rounded-lg focus:outline-0 focus:outline-offset-0 border border-solid border-gray-300"
 					onClick={() => moveBack()}
 				>
 					Back

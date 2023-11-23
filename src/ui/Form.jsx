@@ -4,7 +4,7 @@ const Form = ({ onSubmit, type, children }) => {
 			onSubmit={onSubmit}
 			className={`${
 				type === "regular"
-					? "py-[2.4rem] px-[4rem] bg-white border border-solid rounded-lg"
+					? "py-[2.4rem] px-[4rem] bg-white  rounded-lg"
 					: "w-[80rem]"
 			} overflow-hidden text-[1.4rem]`}
 		>

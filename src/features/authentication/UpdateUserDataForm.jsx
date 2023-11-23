@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-import Button from "../../ui/Button";
 import FileInput from "../../ui/FileInput";
 import Form from "../../ui/Form";
 import FormRow from "../../ui/FormRow";
@@ -27,10 +26,11 @@ const UpdateUserDataForm = () => {
 	return (
 		<Form onSubmit={handleSubmit}>
 			<FormRow label="Email address">
-				<Input value={email} disabled />
+				<input className={Input} value={email} disabled />
 			</FormRow>
 			<FormRow label="Full name">
-				<Input
+				<input
+					className={Input}
 					type="text"
 					value={fullName}
 					onChange={(e) => setFullName(e.target.value)}
@@ -38,17 +38,23 @@ const UpdateUserDataForm = () => {
 				/>
 			</FormRow>
 			<FormRow label="Avatar image">
-				<FileInput
+				<input
+					className={FileInput}
 					id="avatar"
 					accept="image/*"
 					onChange={(e) => setAvatar(e.target.files[0])}
 				/>
 			</FormRow>
 			<FormRow>
-				<Button type="reset" variation="secondary">
+				<button
+					className="text-[1.4rem] py-[1.2rem] px-[1.6rem] uppercase font-medium rounded-lg text-gray-600 bg-white hover:bg-gray-50 border border-solid border-gray-300 focus:outline-0 focus:outline-offset-0"
+					type="reset"
+				>
 					Cancel
-				</Button>
-				<Button>Update account</Button>
+				</button>
+				<button className="text-[1.4rem] py-[1.2rem] px-[1.6rem] uppercase font-medium rounded-lg text-indigo-50 bg-indigo-600 hover:bg-indigo-700 focus:outline-0 focus:outline-offset-0">
+					Update account
+				</button>
 			</FormRow>
 		</Form>
 	);

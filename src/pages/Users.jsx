@@ -1,7 +1,12 @@
-import Heading from "../ui/Heading";
+import SignupForm from "../features/authentication/SignupForm";
 
 const NewUsers = () => {
-	return <Heading as="h1">Create a new user</Heading>;
+	return (
+		<>
+			<h1 className="text-5xl font-semibold">Create a new user</h1>
+			<SignupForm />
+		</>
+	);
 };
 
 export default NewUsers;

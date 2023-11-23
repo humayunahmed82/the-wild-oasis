@@ -1,5 +1,3 @@
-import Heading from "../ui/Heading";
-import Row from "../ui/Row";
 import CabinTable from "../features/cabins/CabinTable";
 import AddCabin from "../features/cabins/AddCabin";
 import CabinTableOperation from "../features/cabins/CabinTableOperation";
@@ -7,15 +5,15 @@ import CabinTableOperation from "../features/cabins/CabinTableOperation";
 const Cabins = () => {
 	return (
 		<>
-			<Row type="horizontal">
-				<Heading as="h1">All cabins</Heading>
+			<div className="flex justify-between items-center">
+				<h1 className="text-5xl font-semibold">All cabins</h1>
 				<CabinTableOperation />
-			</Row>
-			<Row>
+			</div>
+			<div className="flex flex-col gap-[1.6rem]">
 				<CabinTable />
 
 				<AddCabin />
-			</Row>
+			</div>
 		</>
 	);
 };

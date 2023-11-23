@@ -26,9 +26,10 @@ const UpdateSettingsForm = () => {
 	};
 
 	return (
-		<Form>
+		<Form type="regular">
 			<FormRow label="Minimum nights/booking">
-				<Input
+				<input
+					className={Input}
 					type="number"
 					id="min-nights"
 					defaultValue={minBookingLength}
@@ -37,7 +38,8 @@ const UpdateSettingsForm = () => {
 				/>
 			</FormRow>
 			<FormRow label="Maximum nights/booking">
-				<Input
+				<input
+					className={Input}
 					type="number"
 					id="max-nights"
 					defaultValue={maxBookingLength}
@@ -46,7 +48,8 @@ const UpdateSettingsForm = () => {
 				/>
 			</FormRow>
 			<FormRow label="Maximum guests/booking">
-				<Input
+				<input
+					className={Input}
 					type="number"
 					id="max-guests"
 					defaultValue={maxGuestsPerBooking}
@@ -55,7 +58,8 @@ const UpdateSettingsForm = () => {
 				/>
 			</FormRow>
 			<FormRow label="Breakfast price">
-				<Input
+				<input
+					className={Input}
 					type="number"
 					id="breakfast-price"
 					defaultValue={breakfastPrice}

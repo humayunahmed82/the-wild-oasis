@@ -1,13 +1,11 @@
 import UpdateSettingsForm from "../features/settings/UpdateSettingsForm";
-import Heading from "../ui/Heading";
-import Row from "../ui/Row";
 
 const Settings = () => {
 	return (
-		<Row>
-			<Heading as="h1">Update hotel settings</Heading>
+		<div className="flex flex-col gap-[1.6rem]">
+			<h1 className="text-5xl font-semibold mb-12">Update hotel settings</h1>
 			<UpdateSettingsForm />
-		</Row>
+		</div>
 	);
 };
 

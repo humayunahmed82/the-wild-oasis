@@ -139,14 +139,14 @@ const CreateCabinForm = ({ cabinToEdit = {}, onCloseModal }) => {
 			<FormRow>
 				{/* type is an HTML attribute! */}
 				<button
-					className="text-[1.4rem] py-[1.2rem] px-[1.6rem] uppercase font-medium text-gray-600 bg-white hover:bg-gray-50"
+					className="text-[1.4rem] py-[1.2rem] px-[1.6rem] uppercase font-medium text-gray-600 bg-white hover:bg-gray-50 rounded-lg focus:outline-0 focus:outline-offset-0 border border-solid border-gray-300"
 					type="reset"
 					onClick={() => onCloseModal?.()}
 				>
 					Cancel
 				</button>
 				<button
-					className="text-[1.4rem] py-[1.2rem] px-[1.6rem] uppercase font-medium text-indigo-50 bg-indigo-600 hover:bg-indigo-700"
+					className="text-[1.4rem] py-[1.2rem] px-[1.6rem] uppercase font-medium text-indigo-50 bg-indigo-600 hover:bg-indigo-700 rounded-lg  focus:outline-0 focus:outline-offset-0"
 					disabled={isWorking}
 				>
 					{isEditSession ? "Edit Cabin" : "Create new cabin"}

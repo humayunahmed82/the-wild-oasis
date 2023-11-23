@@ -5,7 +5,7 @@ const Bookings = () => {
 	return (
 		<>
 			<div className="flex justify-between items-center">
-				<h1 className="text-5xl font-medium">All bookings</h1>
+				<h1 className="text-5xl font-semibold">All bookings</h1>
 
 				<BookingTableOperations />
 			</div>
