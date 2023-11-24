@@ -105,14 +105,14 @@ const CheckinBooking = () => {
 
 			<div className="flex gap-[1.2rem] justify-end">
 				<button
-					className="text-[1.4rem] py-[1.2rem] px-[1.6rem] uppercase font-medium text-indigo-50 bg-indigo-600 hover:bg-indigo-700"
+					className="text-[1.4rem] py-[1.2rem] px-[1.6rem] uppercase font-medium text-indigo-50 bg-indigo-600 hover:bg-indigo-700 rounded-lg focus:outline-0 focus:outline-offset-0"
 					onClick={handleCheckin}
 					disabled={!confirmPaid || isCheckingIn}
 				>
 					Check in booking #{bookingId}
 				</button>
 				<button
-					className="text-[1.4rem] py-[1.2rem] px-[1.6rem] uppercase font-medium text-gray-600 bg-white hover:bg-gray-50"
+					className="text-[1.4rem] py-[1.2rem] px-[1.6rem] uppercase font-medium text-gray-600 dark:text-gray-300 bg-white dark:bg-[#18212f] hover:bg-gray-50 rounded-lg focus:outline-0 focus:outline-offset-0 border border-solid border-gray-300 dark:border-gray-800"
 					onClick={moveBack}
 				>
 					Back
