@@ -72,13 +72,8 @@ const App = () => {
 						error: {
 							duration: 3000,
 						},
-						style: {
-							fontSize: "16px",
-							maxWidth: "500px",
-							padding: "16px 24px",
-							backgroundColor: "var(--color-grey-0)",
-							color: "var(--color-grey-700)",
-						},
+						className:
+							"text-[16px] bg-white dark:bg-[#18212f] py-[16px] px-[24px] text-gray-700 dark:text-gray-200 max-w-lg",
 					}}
 				/>
 			</QueryClientProvider>

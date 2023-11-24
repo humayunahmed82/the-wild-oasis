@@ -10,7 +10,7 @@ const DarkMode = () => {
 			onClick={toggleDarkMode}
 		>
 			{isDarkMode ? (
-				<HiOutlineSun className="w-9 h-9 text-indigo-600" />
+				<HiOutlineSun className="w-9 h-9 text-indigo-600 " />
 			) : (
 				<HiOutlineMoon className="w-9 h-9 text-indigo-600" />
 			)}
