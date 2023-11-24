@@ -92,4 +92,9 @@
 			#000 0
 		);
 	}
+
+	.recharts-cartesian-grid-horizontal line,
+	.recharts-cartesian-grid-vertical line {
+		@apply stroke-gray-300 dark:stroke-gray-600;
+	}
 }
