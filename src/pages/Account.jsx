@@ -6,7 +6,7 @@ import Row from "../ui/Row";
 const Account = () => {
 	return (
 		<>
-			<h1 className="text-5xl font-medium">Update your account</h1>
+			<h1 className="text-5xl font-semibold">Update your account</h1>
 
 			<div className="flex flex-col gap-[1.6rem]">
 				<h3 className="text-[2rem] font-medium">Update user data</h3>
