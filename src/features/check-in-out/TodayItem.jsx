@@ -1,8 +1,5 @@
-// const Guest = styled.div`
-// 	font-weight: 500;
-// `;
-
 import { Link } from "react-router-dom";
+
 import CheckoutButton from "./CheckoutButton";
 
 const TodayItem = ({ activity }) => {

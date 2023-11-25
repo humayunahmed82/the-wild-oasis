@@ -1,6 +1,7 @@
-import { useTodayActivity } from "./useTodayActivity";
 import Spinner from "../../ui/Spinner";
 import TodayItem from "./TodayItem";
+
+import { useTodayActivity } from "./useTodayActivity";
 
 const TodayActivity = () => {
 	const { isLoading, activities } = useTodayActivity();

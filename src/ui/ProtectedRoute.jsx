@@ -1,8 +1,9 @@
-import Spinner from "./Spinner";
-
-import { useUser } from "../features/authentication/useUser";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+
+import { useUser } from "../features/authentication/useUser";
+
+import Spinner from "./Spinner";
 
 const ProtectedRoute = ({ children }) => {
 	const navigate = useNavigate();
@@ -18,7 +19,7 @@ const ProtectedRoute = ({ children }) => {
 	// 3. While loading, show a spinner
 	if (isLoading)
 		return (
-			<div className="h-screen bg-gray-50 flex items-center justify-center">
+			<div className="h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
 				<Spinner />
 			</div>
 		);

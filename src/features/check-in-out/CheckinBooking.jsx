@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 
+import { formatCurrency } from "../../utils/helpers";
+import { useMoveBack } from "../../hooks/useMoveBack";
+
 import Spinner from "../../ui/Spinner";
 import BookingDataBox from "../../features/bookings/BookingDataBox";
 import Checkbox from "../../ui/Checkbox";
 
 import { useBooking } from "../bookings/useBooking";
-import { useMoveBack } from "../../hooks/useMoveBack";
-import { formatCurrency } from "../../utils/helpers";
 import { useCheckin } from "./useCheckin";
 import { useSettings } from "../settings/useSettings";
 

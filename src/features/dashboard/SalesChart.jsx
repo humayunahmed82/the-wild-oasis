@@ -1,3 +1,5 @@
+import { eachDayOfInterval, format, isSameDay, subDays } from "date-fns";
+
 import {
 	Area,
 	AreaChart,
@@ -7,8 +9,8 @@ import {
 	XAxis,
 	YAxis,
 } from "recharts";
+
 import { useDarkMode } from "../../context/DarkModeContext";
-import { eachDayOfInterval, format, isSameDay, subDays } from "date-fns";
 
 const SalesChart = ({ bookings, numDays }) => {
 	const { isDarkMode } = useDarkMode();

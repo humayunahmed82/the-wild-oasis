@@ -6,6 +6,7 @@ import {
 	ResponsiveContainer,
 	Tooltip,
 } from "recharts";
+
 import { useDarkMode } from "../../context/DarkModeContext";
 
 const startDataLight = [

@@ -3,17 +3,18 @@ import { format, isToday } from "date-fns";
 import { formatCurrency } from "../../utils/helpers";
 import { formatDistanceFromNow } from "../../utils/helpers";
 
-import Table from "../../ui/Table";
-import Menus from "../../ui/Menus";
-import Modal from "../../ui/Modal";
-import ConfirmDelete from "../../ui/ConfirmDelete";
-
 import {
 	HiArrowDownOnSquare,
 	HiArrowUpOnSquare,
 	HiEye,
 	HiTrash,
 } from "react-icons/hi2";
+
+import Table from "../../ui/Table";
+import Menus from "../../ui/Menus";
+import Modal from "../../ui/Modal";
+import ConfirmDelete from "../../ui/ConfirmDelete";
+
 import { useNavigate } from "react-router-dom";
 import { useCheckout } from "../check-in-out/useCheckout";
 import { useDeleteBooking } from "./useDeleteBooking";

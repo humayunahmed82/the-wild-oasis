@@ -1,5 +1,5 @@
-import LoginForm from "../features/authentication/LoginForm";
 import Logo from "../ui/Logo";
+import LoginForm from "../features/authentication/LoginForm";
 
 const Login = () => {
 	return (

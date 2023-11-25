@@ -3,9 +3,9 @@ import { useState } from "react";
 import Form from "../../ui/Form";
 import Input from "../../ui/Input";
 import FormRowVertical from "../../ui/FormRowVertical";
+import SpinnerMini from "../../ui/SpinnerMini";
 
 import { useLogin } from "./useLogin";
-import SpinnerMini from "../../ui/SpinnerMini";
 
 const LoginForm = () => {
 	const [email, setEmail] = useState("demo@demo.com");
