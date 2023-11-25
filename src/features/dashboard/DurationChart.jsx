@@ -1,22 +1,12 @@
-import styled from "styled-components";
-
-const ChartBox = styled.div`
-	/* Box */
-	background-color: var(--color-grey-0);
-	border: 1px solid var(--color-grey-100);
-	border-radius: var(--border-radius-md);
-
-	padding: 2.4rem 3.2rem;
-	grid-column: 3 / span 2;
-
-	& > *:first-child {
-		margin-bottom: 1.6rem;
-	}
-
-	& .recharts-pie-label-text {
-		font-weight: 600;
-	}
-`;
+import {
+	Cell,
+	Legend,
+	Pie,
+	PieChart,
+	ResponsiveContainer,
+	Tooltip,
+} from "recharts";
+import { useDarkMode } from "../../context/DarkModeContext";
 
 const startDataLight = [
 	{
@@ -130,3 +120,49 @@ const prepareData = (startData, stays) => {
 
 	return data;
 };
+
+const DurationChart = ({ confirmedStays }) => {
+	const { isDarkMode } = useDarkMode();
+	const startData = isDarkMode ? startDataDark : startDataLight;
+	const data = prepareData(startData, confirmedStays);
+
+	return (
+		<div className="bg-white dark:bg-[#18212f] border border-solid border-gray-100 dark:border-gray-800 py-10 px-[3.2rem] col-span-2 first:[&_>_*]:mb-6">
+			<h2 className="text-[2rem] font-semibold"> Stay duration summary</h2>
+
+			<ResponsiveContainer width="100%" height={240}>
+				<PieChart>
+					<Pie
+						data={data}
+						nameKey="duration"
+						dataKey="value"
+						innerRadius={85}
+						outerRadius={110}
+						cx="40%"
+						cy="50%"
+						paddingAngle={3}
+					>
+						{data.map((entry) => (
+							<Cell
+								fill={entry.color}
+								stroke={entry.color}
+								key={entry.duration}
+							/>
+						))}
+					</Pie>
+					<Tooltip />
+					<Legend
+						verticalAlign="middle"
+						align="right"
+						width="25%"
+						layout="vertical"
+						iconSize={15}
+						iconType="circle"
+					/>
+				</PieChart>
+			</ResponsiveContainer>
+		</div>
+	);
+};
+
+export default DurationChart;

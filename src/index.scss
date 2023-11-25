@@ -97,4 +97,8 @@
 	.recharts-cartesian-grid-vertical line {
 		@apply stroke-gray-300 dark:stroke-gray-600;
 	}
+
+	.recharts-pie-label-text {
+		@apply font-semibold;
+	}
 }
