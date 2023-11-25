@@ -8,7 +8,6 @@ import {
 } from "react-icons/hi2";
 
 import DataItem from "../../ui/DataItem";
-import { Flag } from "../../ui/Flag";
 
 import { formatDistanceFromNow, formatCurrency } from "../../utils/helpers";
 
@@ -52,7 +51,13 @@ const BookingDataBox = ({ booking }) => {
 
 			<section className="pt-[3.2rem] px-16 pb-[1.2rem]">
 				<div className="flex items-center gap-[1.2rem] mb-[1.6rem] text-gray-500 dark:text-gray-400">
-					{countryFlag && <Flag src={countryFlag} alt={`Flag of ${country}`} />}
+					{countryFlag && (
+						<img
+							className="max-w-[2rem] rounded-sm block border border-solid border-gray-100 dark:border-gray-800"
+							src={countryFlag}
+							alt={`Flag of ${country}`}
+						/>
+					)}
 					<p className="[&:first-of-type]:font-medium [&:first-of-type]:text-gray-700 dark:[&:first-of-type]:text-gray-200">
 						{guestName} {numGuests > 1 ? `+ ${numGuests - 1} guests` : ""}
 					</p>
